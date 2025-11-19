@@ -1,0 +1,400 @@
+:root {
+  color-scheme: dark;
+  --bg-base: #050508;
+  --bg-gradient: radial-gradient(circle at top left, rgba(255, 65, 155, 0.2), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(98, 208, 255, 0.18), transparent 50%),
+    #050508;
+  --text-primary: #f7f7f7;
+  --text-secondary: rgba(255, 255, 255, 0.66);
+  --accent: #ff67d4;
+  --accent-alt: #64d4ff;
+  --accent-deep: #5d3bff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-poppins), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  padding: 4rem clamp(1.5rem, 4vw, 6rem);
+}
+
+.hero-intro {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.25rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.hero-headline {
+  font-family: var(--font-playfair), 'Times New Roman', serif;
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  letter-spacing: 0.06em;
+  max-width: 18ch;
+}
+
+.hero-description {
+  max-width: 40rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(1rem, 2.4vw, 1.25rem);
+  line-height: 1.7;
+}
+
+.hero-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.metric-card {
+  min-width: 150px;
+  padding: 1rem 1.4rem;
+  border-radius: 18px;
+  background: rgba(12, 12, 22, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: center;
+}
+
+.metric-card strong {
+  display: block;
+  font-size: 1.45rem;
+  letter-spacing: 0.08em;
+}
+
+.metric-card span {
+  display: block;
+  margin-top: 0.35rem;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.section-title {
+  font-family: var(--font-playfair), 'Times New Roman', serif;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+}
+
+.section-subtitle {
+  color: var(--text-secondary);
+  max-width: 48rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  line-height: 1.6;
+}
+
+.scene-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 32px;
+  overflow: hidden;
+  background: rgba(10, 10, 20, 0.76);
+  box-shadow: 0 30px 60px rgba(5, 5, 12, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  max-width: min(640px, 100%);
+  margin: 0 auto;
+}
+
+.scene-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 30%, rgba(5, 5, 15, 0.82) 100%);
+  pointer-events: none;
+}
+
+.scene-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.35) contrast(1.08);
+}
+
+.scene-overlay {
+  position: absolute;
+  inset: 0;
+  padding: clamp(1.5rem, 3vh, 2.75rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  z-index: 2;
+}
+
+.overlay-tagline {
+  font-size: clamp(1.6rem, 4vw, 2.65rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  text-shadow: 0 6px 24px rgba(0, 0, 0, 0.6);
+}
+
+.overlay-caption {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(0.95rem, 2vw, 1.15rem);
+  line-height: 1.5;
+  max-width: 22rem;
+}
+
+.overlay-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  backdrop-filter: blur(18px);
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.scene-progress {
+  position: absolute;
+  top: 1.25rem;
+  left: 1.25rem;
+  right: 1.25rem;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+  z-index: 3;
+}
+
+.scene-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-alt));
+  transform-origin: left;
+}
+
+.lookbook-grid {
+  display: grid;
+  gap: 1.75rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.look-card {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(12, 12, 20, 0.82);
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+  padding: 1.5rem;
+  box-shadow: 0 20px 45px rgba(3, 5, 15, 0.4);
+}
+
+.look-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) saturate(1.14);
+  transition: transform 1s ease, filter 1s ease;
+}
+
+.look-card:hover img {
+  transform: scale(1.08);
+  filter: contrast(1.2) saturate(1.2);
+}
+
+.look-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(3, 3, 6, 0) 35%, rgba(3, 3, 6, 0.9) 100%);
+}
+
+.look-card h3,
+.look-card p {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+
+.look-card h3 {
+  font-size: 1.25rem;
+  letter-spacing: 0.04em;
+}
+
+.look-card p {
+  margin-top: 0.4rem;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.product-spotlight {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  align-items: center;
+}
+
+.product-card {
+  position: relative;
+  border-radius: 36px;
+  padding: 3rem 2rem;
+  background: linear-gradient(140deg, rgba(255, 104, 212, 0.18), rgba(84, 81, 255, 0.12), rgba(15, 15, 25, 0.95));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 35px 70px rgba(8, 6, 22, 0.55);
+}
+
+.rotating-glasses {
+  width: clamp(240px, 32vw, 320px);
+  height: clamp(180px, 22vw, 240px);
+  border-radius: 28px;
+  position: relative;
+  margin: 0 auto 1.5rem;
+  overflow: hidden;
+  perspective: 1200px;
+}
+
+.rotating-glasses img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center;
+  animation: rotateLens 14s linear infinite;
+  filter: saturate(1.25) contrast(1.1);
+}
+
+.product-card p {
+  color: rgba(255, 255, 255, 0.78);
+  line-height: 1.6;
+  max-width: 420px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.product-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.spec-chip {
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  background: rgba(5, 5, 15, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.final-callout {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-bottom: 4rem;
+}
+
+.final-callout h2 {
+  font-family: var(--font-playfair), 'Times New Roman', serif;
+  font-size: clamp(3rem, 6vw, 4.6rem);
+  letter-spacing: 0.06em;
+}
+
+.final-callout p {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+}
+
+.soundtrack-hint {
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(5, 5, 15, 0.6);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.9rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.soundtrack-hint:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(8, 8, 22, 0.45);
+}
+
+@keyframes rotateLens {
+  0% {
+    transform: rotateY(0deg) scale(1.02);
+  }
+  50% {
+    transform: rotateY(20deg) scale(1.05);
+  }
+  100% {
+    transform: rotateY(-20deg) scale(1.02);
+  }
+}
+
+@keyframes progressFill {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.progress-animate {
+  animation: progressFill var(--duration) linear forwards;
+}
+
+@media (min-width: 960px) {
+  main {
+    gap: 8rem;
+  }
+
+  .scene-frame {
+    aspect-ratio: 10 / 16;
+  }
+}
